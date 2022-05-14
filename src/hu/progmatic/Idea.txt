@@ -1,0 +1,23 @@
+Sziasztok én Encivel leszek 1 csapatban.
+
+
+Olyasmire gondoltunk, hogy: igazából kuponokat tárolna maga az "alkalmazás" pl...:
+megnyitjuk és kidob 5-6 féle kupont(itt nemtudom, hogy 1külön boltra specializlódva vagy többre lennének kuponok)
+itt azt értem,hogy belépsz
+és azt látod -10%off zarában vagy -10%off fogászaton
+VAGY belépsz és -35% a paradicsomra
+Miután "belépsz" kapsz 5db kupont, de a vásárlások után kapsz egy kaparós kupont amit ha
+"lekarap" 50-50%-ban nyerhetsz még extra kupont is.
+
+
+Tehát most én vagyok a felhasználó
+
+1. regisztrálok (név, emailcím,kedvenc bolt megjelölése) ezt kiírni neki conzolra
+2.Belépek és kidob nekem 5 kupont pl.:tejre,vajra stb
+3. Megkérdezi a progi miket vásároltál-----> és ha van olyan termék amit vásároltál
+is és aktív is a kupon akkor vásárlás után levonja azt a % de azon is gondolkoztam lehet inkább
+ingyen terméket kellene adni ls akkor nem kellene % számolni:D csak 0-ni az adott termék árát
+. Nos vásárlás után viszont eltűnik a kupon a kuponjai közül.
+4.a végén generálunk egy árat és kiiratjuk, feltünthethejük azt is mennyit spórolt a kuponokkal.
+nagyon röviden ennyire gondoltam
+Amit megad termékek azt listába mentenénk amiben könnyen tudunk keresni
