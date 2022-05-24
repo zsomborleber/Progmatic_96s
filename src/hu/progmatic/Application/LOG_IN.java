@@ -53,10 +53,10 @@ public class LOG_IN {
       password = scanner.nextLine();
       if (confirmPasswordByEmail.contains(password)){
           System.out.println("You have successfully logged in");
-          System.out.println("*******************************");
+          System.out.println("**************************************");
           System.out.println("Welcome to your Progmatic Plus Account");
-          System.out.println("*******************************");
-          System.out.println("===========================\n\n");
+          System.out.println("**************************************");
+          System.out.println("===========================\n");
 
       }
       while (!confirmPasswordByEmail.contains(password)){

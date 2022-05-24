@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class CreateAccount {
     static List<String> registrationByEmailAddress = new ArrayList<>();
     static List<String> confirmPasswordByEmail = new ArrayList<>();
+    static User user = new User();
 
     public static List<String> getRegistrationByEmailAddress() {
         registrationByEmailAddress.add("leberzsombor96@gmail.com");
-        registrationByEmailAddress.add("asd");
 
         return registrationByEmailAddress;
     }
@@ -55,37 +55,53 @@ public class CreateAccount {
 
 
         System.out.println("Enter your First name");
-        String firstName = scanner.nextLine();
+        user.setFirstName(scanner.nextLine());
         System.out.println("Enter your last name");
-        String lastName = scanner.nextLine();
-        System.out.println(firstName + ",what's your email address?");
+        user.setLastName(scanner.nextLine());
+        System.out.println(user.getFirstName() + ",What's your email address?");
         System.out.println("Please enter your email address carefully we'll use this to verify your account.");
 
-        String emailAddress = scanner.nextLine();
-        addNewLogIn(registrationByEmailAddress,emailAddress);
+        user.setEmailAddress(scanner.nextLine());
+        while (user.getEmailAddress().equals("")){
+            System.out.println("Enter any email address");
+            user.setEmailAddress(scanner.nextLine());
+        }
+        addNewLogIn(registrationByEmailAddress, user.getEmailAddress());
 
-        emailAddress = scanner.nextLine();
-        registrationByEmailAddress.add(emailAddress);
+        registrationByEmailAddress.add(user.getEmailAddress());
         System.out.println("Confirm your email address");
         String confirmEmailAddress = scanner.nextLine();
         registrationByEmailAddress.add(confirmEmailAddress);
-        while  (!emailAddress.equals(confirmEmailAddress) ){
+        while  (!user.getEmailAddress().equals(confirmEmailAddress) ){
 
             System.out.println(RED + "The email addresses you've entered don't match");
             System.out.println(DEFAULT + "Try again");
             confirmEmailAddress = scanner.nextLine();
             registrationByEmailAddress.add(confirmEmailAddress);
         }
-        System.out.println("Please enter your password");
-        String password = scanner.nextLine();
-        confirmPasswordByEmail.add(password);
+        System.out.println("Please enter your password" + " or generate your own, would you like to generate it? To generate password press 1.");
+        user.setPassword(scanner.nextLine());
+        if (!user.getPassword().equals("1")){
+            user.getPassword();
+            confirmPasswordByEmail.add(user.getPassword());
+
+
+        }else {
+            PasswordGenerator.generatePassword();
+            user.setPassword(PasswordGenerator.user.getPassword());
+            confirmPasswordByEmail.add(user.getPassword());
+        }
+
+
+
+
         System.out.println("Confirm your password");
         String confirmPassword = scanner.nextLine();
-        while (!password.equals(confirmPassword)) {
+        while (!user.getPassword().equals(confirmPassword)) {
             System.out.println(RED + "The passwords you've entered don't match");
             System.out.println(DEFAULT + "Try again");
             confirmPassword = scanner.nextLine();
-            confirmPasswordByEmail.add(password);
+            confirmPasswordByEmail.add(user.getPassword());
 
         }
 
@@ -100,14 +116,15 @@ public class CreateAccount {
         String DEFAULT = "\u001B[0m";
         Scanner scanner = new Scanner(System.in);
         getRegistrationByEmailAddress();
-        while (registrationByEmailAddress.contains(newEmailAddress)){
+        while (user.getEmailAddress() != null && registrationByEmailAddress.contains(newEmailAddress)){
             System.out.println(RED + "This email address is already used");
             System.out.println(DEFAULT + "Try again");
             newEmailAddress = scanner.nextLine();
 
             if (!registrationByEmailAddress.contains(newEmailAddress)){
                 registrationByEmailAddress.add(newEmailAddress);
-                System.out.println("Enter the new email again");
+                System.out.println("Enter the new email address again");
+                user.setEmailAddress(scanner.nextLine());
                 break;
             }
 
@@ -119,8 +136,6 @@ public class CreateAccount {
         System.out.println("Please Log IN");
         LOG_IN.logInWithEmail(registrationByEmailAddress);
         LOG_IN.logInWithPassword(confirmPasswordByEmail);
-        System.out.println("===========================");
-        System.out.println("Welcome to  Progmatic Plus ");
 
     }
 }
