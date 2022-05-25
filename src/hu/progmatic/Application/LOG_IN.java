@@ -52,11 +52,7 @@ public class LOG_IN {
       System.out.println("Enter your password");
       password = scanner.nextLine();
       if (confirmPasswordByEmail.contains(password)){
-          System.out.println("You have successfully logged in");
-          System.out.println("**************************************");
-          System.out.println("Welcome to your Progmatic Plus Account");
-          System.out.println("**************************************");
-          System.out.println("===========================\n");
+
 
       }
       while (!confirmPasswordByEmail.contains(password)){
@@ -66,6 +62,11 @@ public class LOG_IN {
 
 
       }
+      System.out.println("You have successfully logged in");
+      System.out.println("**************************************");
+      System.out.println("Welcome to your Progmatic Plus Account");
+      System.out.println("**************************************");
+      System.out.println("===========================\n");
 
   }
 }
