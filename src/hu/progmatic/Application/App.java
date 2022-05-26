@@ -26,5 +26,11 @@ public class App {
             CreateAccount.registrationIfYes();
 
         }
+
+        LOG_IN.getAndActivateCoupon();
+
+
     }
+
+
 }

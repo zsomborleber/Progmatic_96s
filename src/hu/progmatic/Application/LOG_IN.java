@@ -68,5 +68,41 @@ public class LOG_IN {
       System.out.println("**************************************");
       System.out.println("===========================\n");
 
+      Coupons.listCoupons();
+
+      System.out.println("Activate any of these coupons to get it for free");
+      System.out.println("Press the coupon's number you want to activate ");
+
   }
+
+  public static void getAndActivateCoupon(){
+        Scanner scanner = new Scanner(System.in);
+      String RED = "\u001B[31m";
+      String DEFAULT = "\u001B[0m";
+
+      String activateCoupon = scanner.nextLine();
+
+      if (activateCoupon.equals("1")){
+          Coupons.productTomato.setPrice(0);
+          Coupons.setActive(true);
+      }else if (activateCoupon.equals("2")){
+          Coupons.productHeinekenBeer.setPrice(0);
+          Coupons.setActive(true);
+      }else if (activateCoupon.equals("3")){
+          Coupons.productWholeWheatBread.setPrice(0);
+          Coupons.setActive(true);
+      }else if (activateCoupon.equals("4")){
+          Coupons.productFreshMilk.setPrice(0);
+          Coupons.setActive(true);
+      }while (!activateCoupon.equals("1")&& activateCoupon.equals("2")&& activateCoupon.equals("3")&&activateCoupon.equals("4")){
+          System.out.println(RED + "Wrong coupon code");
+          scanner.nextLine();
+      }
+      Coupons.listCoupons();
+
+  }
+
+
+
+
 }
